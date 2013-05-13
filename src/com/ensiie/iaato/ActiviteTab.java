@@ -1,4 +1,6 @@
-package com.example.iaato;
+package com.ensiie.iaato;
+import com.ensiie.iaato.R;
+
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -12,7 +14,7 @@ import android.widget.Button;
 import android.widget.TabHost;
 
 public class ActiviteTab extends Activity {
-  // La chaîne de caractères par défaut
+  // La chaï¿½ne de caractï¿½res par dï¿½faut
 
 	Button info;
 	Button gene;

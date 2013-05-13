@@ -1,4 +1,6 @@
-package com.example.iaato;
+package com.ensiie.iaato;
+
+import com.ensiie.iaato.R;
 
 import android.content.Context;
 import android.os.Parcelable;

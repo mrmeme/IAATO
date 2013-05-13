@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.iaato"
+    package="com.ensiie.iaato"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" android:enabled="true">
         <activity
-            android:name="com.example.iaato.MainActivity"
+            android:name="com.ensiie.iaato.MainActivity"
             android:label="@string/app_name" android:singleUser="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ActiviteTab" android:finishOnTaskLaunch="true">
+        <activity android:name="com.ensiie.iaato.ActiviteTab" android:finishOnTaskLaunch="true">
             
         </activity>
-        <activity android:name="SwipeActivity"></activity>
+        <activity android:name="com.ensiie.iaato.SwipeActivity"></activity>
     </application>
 
 </manifest>

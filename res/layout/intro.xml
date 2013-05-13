@@ -3,10 +3,10 @@
     android:layout_height="match_parent" >
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/tv_user"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignLeft="@+id/passwd"
+        android:layout_alignLeft="@+id/tv_passwd"
         android:layout_below="@+id/iaato"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
@@ -25,10 +25,10 @@
     </EditText>
 
     <EditText
-        android:id="@+id/passwd"
+        android:id="@+id/tv_passwd"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_below="@+id/user"
+        android:layout_below="@+id/tv_user"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -42,11 +42,11 @@
         android:textColorHint="@android:color/darker_gray" />
 
     <Button
-        android:id="@+id/connect"
+        android:id="@+id/btn_connect"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/passwd"
-        android:layout_below="@+id/passwd"
+        android:layout_alignLeft="@+id/tv_passwd"
+        android:layout_below="@+id/tv_passwd"
         android:layout_marginTop="15dp"
         android:text="Connection" />
 
