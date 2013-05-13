@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/passwd"
+        android:layout_below="@+id/iaato"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:textColorHint="@android:color/darker_gray" >
+
+        <requestFocus android:layout_width="wrap_content" />
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/passwd"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwd"
+        android:layout_below="@+id/passwd"
+        android:layout_marginTop="15dp"
+        android:text="Connection" />
+
+    <ImageView
+        android:id="@+id/iaato"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="Connexion"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

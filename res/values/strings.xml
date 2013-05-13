@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IAATO</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="coucou">Coucou</string>
+    <string name="editText">Edition</string>
+    <string name="histoire">&amp;lt;b&gt;caca&amp;lt;/b&gt;</string>
+
+</resources>
