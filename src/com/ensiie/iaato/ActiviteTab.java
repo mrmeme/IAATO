@@ -2,16 +2,11 @@ package com.ensiie.iaato;
 import com.ensiie.iaato.R;
 
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TabHost;
 
 public class ActiviteTab extends Activity {
   // La cha�ne de caract�res par d�faut
@@ -55,11 +50,19 @@ public class ActiviteTab extends Activity {
 			   Intent intent = new Intent(ActiviteTab.this, MainActivity.class);
 				startActivity(intent);
 		   }
+		   else if(v.getId()==R.id.gene)
+		   {
+			
+			   Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
+				startActivity(intent);
+		   }
 		   else
 		   {
-			Intent intent = new Intent(ActiviteTab.this, SwipeActivity.class);
-			SwipeActivity.setView(v);
-			startActivity(intent);
+			/*Intent intent = new Intent(ActiviteTab.this, SwipeActivity.class);
+			SwipeActivity.setView(v);			
+			startActivity(intent);*/
+			   Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
+				startActivity(intent);
 		   }
 	   }
   };
