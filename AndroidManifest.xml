@@ -30,12 +30,10 @@
         <activity android:name="com.ensiie.iaato.SwipeActivity" >
         </activity>
         <activity
-            android:name="com.ensiie.iaato.SiteActivity"
-            android:label="@string/title_activity_info" >
+            android:name="com.ensiie.iaato.SiteActivity">
         </activity>
         <activity
-            android:name="com.ensiie.iaato.ShipActivity"
-            android:label="@string/title_activity_info" >
+            android:name="com.ensiie.iaato.ShipActivity" >
         </activity>
     </application>
 

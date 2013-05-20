@@ -54,7 +54,13 @@ public class ActiviteTab extends Activity {
 		  if(v.getId()==R.id.btn_gene)
 		   {
 			
-			   Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
+			   //Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
+				//startActivity(intent);
+		   }
+		  if(v.getId()==R.id.btn_liste)
+		   {
+			
+			  Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
 				startActivity(intent);
 		   }
 		   else
@@ -62,8 +68,8 @@ public class ActiviteTab extends Activity {
 			/*Intent intent = new Intent(ActiviteTab.this, SwipeActivity.class);
 			SwipeActivity.setView(v);			
 			startActivity(intent);*/
-			   Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
-				startActivity(intent);
+			   //Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
+				//startActivity(intent);
 		   }
 	   }
   };

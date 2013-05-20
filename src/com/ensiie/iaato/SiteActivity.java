@@ -24,7 +24,7 @@ public class SiteActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.info);
+		setContentView(R.layout.liste_site);
 		
 		SiteAdapter sa = new SiteAdapter(this, R.layout.line);
 		ListView lv = (ListView) findViewById(R.id.ListProd) ;
