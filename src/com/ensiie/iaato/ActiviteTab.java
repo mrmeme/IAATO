@@ -63,6 +63,12 @@ public class ActiviteTab extends Activity {
 			  Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
 				startActivity(intent);
 		   }
+		  else if(v.getId()==R.id.btn_info)
+		   {
+			
+			  Intent intent = new Intent(ActiviteTab.this, InfoActivity.class);
+				startActivity(intent);
+		   }
 		   else
 		   {
 			/*Intent intent = new Intent(ActiviteTab.this, SwipeActivity.class);
