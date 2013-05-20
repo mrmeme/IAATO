@@ -8,10 +8,10 @@
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#2980B9"
+        android:background="@android:color/darker_gray"
         android:gravity="center|left"
         android:paddingLeft="10dp"
-        android:text="INFORMATIONS"
+        android:text="LISTE DES SITES"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white" />
 

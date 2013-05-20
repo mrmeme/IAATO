@@ -15,27 +15,33 @@ public class ActiviteTab extends Activity {
 	Button gene;
 	Button trajet;
 	Button modif;
-	Button deco;
+	Button annuaire;
+	Button liste;
+
   @Override
   public void onCreate(Bundle savedInstanceState) 
   {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.home);
     
-    info = (Button) this.findViewById(R.id.info);
+    info = (Button) this.findViewById(R.id.btn_info);
     info.setOnClickListener(blistener);
     
-    gene = (Button) this.findViewById(R.id.gene);
+    gene = (Button) this.findViewById(R.id.btn_gene);
     gene.setOnClickListener(blistener);
     
-    trajet = (Button) this.findViewById(R.id.trajet);
+    trajet = (Button) this.findViewById(R.id.btn_trajet);
     trajet.setOnClickListener(blistener);
     
-    modif = (Button) this.findViewById(R.id.modif);
+    modif = (Button) this.findViewById(R.id.btn_modif);
     modif.setOnClickListener(blistener);
     
-    deco = (Button) this.findViewById(R.id.deco);
-    deco.setOnClickListener(blistener);
+    annuaire = (Button) this.findViewById(R.id.btn_annuaire);
+    annuaire.setOnClickListener(blistener);
+    
+    liste = (Button) this.findViewById(R.id.btn_liste);
+    liste.setOnClickListener(blistener);
+
   
   }
   
@@ -45,12 +51,7 @@ public class ActiviteTab extends Activity {
 	   @Override
 	   public void onClick(View v) 
 	   {
-		   if(v.getId()==R.id.deco)
-		   {
-			   Intent intent = new Intent(ActiviteTab.this, MainActivity.class);
-				startActivity(intent);
-		   }
-		   else if(v.getId()==R.id.gene)
+		  if(v.getId()==R.id.btn_gene)
 		   {
 			
 			   Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);

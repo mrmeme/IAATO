@@ -8,16 +8,19 @@
     android:layout_marginTop="0dp"
     android:stretchColumns="1" >
     
-
     <TextView
-        android:id="@+id/textview1"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="5dp"
-        android:gravity="center"
+        android:gravity="center|left"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
         android:text="IAATO"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#3498DB"
+        android:textSize="30sp" />
 
     <TableRow
         android:id="@+id/tableRow1"
@@ -26,23 +29,23 @@
         android:layout_weight="1" >
 
         <Button
-            android:id="@+id/info"
+            android:id="@+id/btn_info"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="#2980B9"
             android:text="Info"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/gene"
+            android:id="@+id/btn_gene"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#2980B9"
             android:text="Général"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
@@ -56,23 +59,23 @@
         android:layout_weight="1" >
 
         <Button
-            android:id="@+id/trajet"
+            android:id="@+id/btn_trajet"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#3498DB"
             android:text="Mon Trajet"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/modif"
+            android:id="@+id/btn_modif"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_light"
+            android:background="#3498DB"
             android:text="Modification"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
@@ -86,25 +89,25 @@
          android:layout_weight="1" >
 
          <Button
-             android:id="@+id/deco"
+             android:id="@+id/btn_annuaire"
              android:layout_width="0dp"
              android:layout_height="match_parent"
              android:layout_margin="5dp"
              android:layout_weight="1"
              android:background="@android:color/darker_gray"
-             android:text="Deconexion"
+             android:text="Annuaire \n bateau"
              android:textColor="@android:color/white"
              android:textSize="25sp" />
 
         <Button
-            android:id="@+id/close"
+            android:id="@+id/btn_liste"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"
             android:gravity="center"
-            android:text="Close"
+            android:text="Liste des \n sites"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
