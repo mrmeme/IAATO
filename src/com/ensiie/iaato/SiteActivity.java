@@ -26,7 +26,7 @@ public class SiteActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.liste_site);
 		
-		SiteAdapter sa = new SiteAdapter(this, R.layout.line);
+		SiteAdapter sa = new SiteAdapter(this, R.layout.line_site);
 		ListView lv = (ListView) findViewById(R.id.ListProd) ;
 		try{	 
 		 	XmlPullParserFactory factory = XmlPullParserFactory.newInstance();

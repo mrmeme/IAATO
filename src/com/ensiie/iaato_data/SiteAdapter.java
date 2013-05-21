@@ -26,7 +26,7 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		View result = convertView;
 		
 		if(convertView == null){
-			result = LayoutInflater.from(getContext()).inflate(R.layout.line, parent, false);
+			result = LayoutInflater.from(getContext()).inflate(R.layout.line_site, parent, false);
 		}
 		
 		final Site site = getItem(position);
