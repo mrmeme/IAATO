@@ -26,7 +26,7 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		View result = convertView;
 		
 		if(convertView == null){
-			result = LayoutInflater.from(getContext()).inflate(R.layout.line, parent, false);
+			result = LayoutInflater.from(getContext()).inflate(R.layout.line_site, parent, false);
 		}
 		
 		final Site site = getItem(position);
@@ -48,11 +48,11 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		TextView desc5 = (TextView) result.findViewById(R.id.tv_line_desc5);
 		desc5.setText("Iaato: "+site.getIaato());
 		
-		TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
+		/*TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
 		if(!site.getActivity().isEmpty())
 			desc6.setText("Activity: "+site.getActivity().get(0));
 		else
-			desc6.setText("No activity");
+			desc6.setText("No activity");*/
 		
 		return result;
 		
