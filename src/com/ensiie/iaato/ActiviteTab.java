@@ -63,7 +63,21 @@ public class ActiviteTab extends Activity {
 			  Intent intent = new Intent(ActiviteTab.this, SiteActivity.class);
 				startActivity(intent);
 		   }
+<<<<<<< HEAD
 		  else  if(v.getId()==R.id.btn_annuaire)
+=======
+<<<<<<< HEAD
+		  else if(v.getId()==R.id.btn_info)
+		   {
+			
+			  Intent intent = new Intent(ActiviteTab.this, InfoActivity.class);
+				startActivity(intent);
+		   }
+		   else
+=======
+		  else  if(v.getId()==R.id.btn_annuaire)
+>>>>>>> annuaire et liste quasi OK
+>>>>>>> 9d1fed5169622414db791c1dfd3e98042f322f9a
 		   {
 			  Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
 			  startActivity(intent);
