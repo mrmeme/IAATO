@@ -46,7 +46,10 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		desc4.setText("Subzone: "+site.getSubzone());
 		
 		TextView desc5 = (TextView) result.findViewById(R.id.tv_line_desc5);
-		desc5.setText("Iaato: "+site.getIaato());
+		if(site.getIaato().equals("1"))
+			desc5.setText("Iaato: Yes");
+		else
+			desc5.setText("Iaato: No");
 		
 		TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
 		if(!site.getActivity().isEmpty())
