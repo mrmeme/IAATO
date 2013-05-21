@@ -12,9 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-//import com.android.drinkiit.R;
 
-public class ShipAdapter extends ArrayAdapter<Site>{
+public class ShipAdapter extends ArrayAdapter<Ship>{
 
 	public ShipAdapter(Context context, int textViewResourceId) {
 		super(context, textViewResourceId);
@@ -26,33 +25,30 @@ public class ShipAdapter extends ArrayAdapter<Site>{
 		View result = convertView;
 		
 		if(convertView == null){
-			result = LayoutInflater.from(getContext()).inflate(R.layout.line, parent, false);
+			result = LayoutInflater.from(getContext()).inflate(R.layout.line_ship, parent, false);
 		}
 		
-		final Site site = getItem(position);
+		final Ship ship = getItem(position);
 		TextView header = (TextView) result.findViewById(R.id.tv_line_header);
-		header.setText(site.getName());
-		
-		TextView desc1 = (TextView) result.findViewById(R.id.tv_line_desc2);
-		desc1.setText("Latitude: "+ site.getLatitude());
+		header.setText(ship.getName());
 		
 		TextView desc2 = (TextView) result.findViewById(R.id.tv_line_desc1);
-		desc2.setText("Longitude: "+site.getLongitude());
+		desc2.setText("Code: "+ship.getCode());
 		
 		TextView desc3 = (TextView) result.findViewById(R.id.tv_line_desc3);
-		desc3.setText("Zone: "+site.getZone());
+		desc3.setText("¨Passager: "+ship.getPassager());
 		
 		TextView desc4 = (TextView) result.findViewById(R.id.tv_line_desc4);
-		desc4.setText("Subzone: "+site.getSubzone());
+		desc4.setText("Société: "+ship.getSociete());
 		
 		TextView desc5 = (TextView) result.findViewById(R.id.tv_line_desc5);
-		desc5.setText("Iaato: "+site.getIaato());
+		desc5.setText("Type: "+ship.getType());
 		
-		TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
-		if(!site.getActivity().isEmpty())
-			desc6.setText("Activity: "+site.getActivity().get(0));
+		/*TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
+		if(!ship.getActivity().isEmpty())
+			desc6.setText("Activity: "+ship.getActivity().get(0));
 		else
-			desc6.setText("No activity");
+			desc6.setText("No activity");*/
 		
 		return result;
 		

@@ -3,10 +3,12 @@ package com.ensiie.iaato;
 import com.ensiie.iaato.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SwipeActivity extends Activity {
  
@@ -20,10 +22,42 @@ public class SwipeActivity extends Activity {
 	    ViewPager myPager = (ViewPager) findViewById(R.id.myfivepanelpager);	    
 	    myPager.setAdapter(adapter);
 	    myPager.setCurrentItem(view);
-	    
+	    CharSequence text = "Hello toast!";
+		int duration = Toast.LENGTH_SHORT;
 
+		Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+		toast.show();
+		
+		
+	    if(view == 0)
+	    {
+	    	//
+	    }
+		else if(view == 1)
+		{
+			
+		}
+		else if(view == 2)
+		{
+			
+		}
+		else if(view == 3)
+		{
+			
+		}
+		else if(view == 4)
+		{
+			
+		}
+		else if(view == 5)
+		{
+			
+			
+		}
+	    
+	 
 	}
-	
+
 	public static void setView(View v)
 	{
 		if(v.getId()==R.id.btn_info){
@@ -35,6 +69,10 @@ public class SwipeActivity extends Activity {
 			view = 2;
 		else if(v.getId()==R.id.btn_modif)
 			view = 3;
+		else if(v.getId()==R.id.btn_annuaire)
+			view = 4;
+		else if(v.getId()==R.id.btn_liste)
+			view = 5;
 		
 	}
 	

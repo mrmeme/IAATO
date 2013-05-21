@@ -7,6 +7,7 @@ import com.ensiie.iaato.R;
 import com.ensiie.iaato_data.Site;
 import com.ensiie.iaato_data.SiteAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,7 +24,7 @@ public class MyPagerAdapter extends PagerAdapter {
 		@Override
 		public int getCount() 
 		{
-            return 4;
+            return 6;
         }
 		
         @Override
@@ -34,7 +35,6 @@ public class MyPagerAdapter extends PagerAdapter {
             switch (position) {
             case 0:
                 resId = R.layout.info;
-                
                 break;
             case 1:
                 resId = R.layout.general;
@@ -44,6 +44,13 @@ public class MyPagerAdapter extends PagerAdapter {
                 break;
             case 3:
                 resId = R.layout.modif;
+                break;
+            case 4:
+                resId = R.layout.annuaire_bat;
+                break;
+            case 5:
+                resId = R.layout.liste_site;
+               
                 break;
             }
             View view = inflater.inflate(resId, null);
