@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class ActiviteTab extends Activity {
-  // La cha�ne de caract�res par d�faut
+  // La chaine de caracteres par defaut
 
 	Button info;
 	Button gene;
@@ -69,6 +69,11 @@ public class ActiviteTab extends Activity {
 			  Intent intent = new Intent(ActiviteTab.this, InfoActivity.class);
 				startActivity(intent);
 		   }
+		else  if(v.getId()==R.id.btn_annuaire)
+		   {
+			  Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
+			  startActivity(intent);
+		   } 
 		   else
 		   {
 			/*Intent intent = new Intent(ActiviteTab.this, SwipeActivity.class);

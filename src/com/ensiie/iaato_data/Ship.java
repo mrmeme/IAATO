@@ -5,15 +5,14 @@ import java.util.ArrayList;
 public class Ship {
 
 	private String name;
-	private String latitude;
-	private String longitude;
-	private String iaato;
-	private ArrayList<String> activity;
-	private String zone;
-	private String subzone;
-	
-	
-	
+	private String code;
+	private String passager;
+	private String societe;
+	//private ArrayList<String> activity;
+	private String type;
+
+
+
 	public String getName() {
 		return name;
 	}
@@ -22,52 +21,39 @@ public class Ship {
 		this.name = name;
 	}
 
-	public String getLatitude() {
-		return latitude;
+	public String getCode() {
+		return code;
 	}
 
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public String getLongitude() {
-		return longitude;
+	public String getPassager() {
+		return passager;
 	}
 
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
+	public void setPassager(String passager) {
+		this.passager = passager;
 	}
 
-	public String getIaato() {
-		return iaato;
+	public String getSociete() {
+		return societe;
 	}
 
-	public void setIaato(String iaato) {
-		this.iaato = iaato;
+	public void setSociete(String societe) {
+		this.societe = societe;
 	}
 
-	public ArrayList<String> getActivity() {
-		return activity;
+
+	public String getType() {
+		return type;
 	}
 
-	public void setActivity(ArrayList<String> activity) {
-		this.activity = activity;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public String getZone() {
-		return zone;
-	}
 
-	public void setZone(String zone) {
-		this.zone = zone;
-	}
 
-	public String getSubzone() {
-		return subzone;
-	}
-
-	public void setSubzone(String subzone) {
-		this.subzone = subzone;
-	}	
-	
 }
