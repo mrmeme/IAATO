@@ -35,6 +35,10 @@ public class SwipeActivity extends Activity {
 			view = 2;
 		else if(v.getId()==R.id.btn_modif)
 			view = 3;
+		else if(v.getId()==R.id.btn_annuaire)
+			view = 4;
+		else if(v.getId()==R.id.btn_liste)
+			view = 5;
 		
 	}
 	
