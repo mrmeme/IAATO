@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ActiviteTab extends Activity {
   // La chaine de caracteres par defaut
@@ -53,9 +54,8 @@ public class ActiviteTab extends Activity {
 	   {
 		  if(v.getId()==R.id.btn_gene)
 		   {
-			
-			   //Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
-				//startActivity(intent);
+			Toast.makeText(getApplicationContext(), "Sync...", Toast.LENGTH_LONG).show();
+			   
 		   }
 		  if(v.getId()==R.id.btn_liste)
 		   {

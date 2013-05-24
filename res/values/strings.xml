@@ -8,5 +8,6 @@
     <string name="editText">Edition</string>
     <string name="histoire">&amp;lt;b&gt;caca&amp;lt;/b&gt;</string>
     <string name="title_activity_info">InfoActivity</string>
+    <string name="lbl_sync">Synchronise</string>
 
 </resources>

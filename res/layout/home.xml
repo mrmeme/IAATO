@@ -46,7 +46,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#2980B9"
-            android:text="Général"
+            android:text="@string/lbl_sync"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
