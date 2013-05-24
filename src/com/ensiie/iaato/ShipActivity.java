@@ -104,9 +104,9 @@ public class ShipActivity extends Activity {
 			Log.e("DI", "erreur = "+e.getMessage());
 			e.printStackTrace();
 		}
-		Ship s = new Ship();
-		s.setName("coucou");
-		sa.add(s);
+		//Ship s = new Ship();
+		//s.setName("coucou");
+		//sa.add(s);
 		lv.setAdapter(sa);
 	}
 

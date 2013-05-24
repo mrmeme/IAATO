@@ -36,6 +36,7 @@
             android:name="com.ensiie.iaato.ShipActivity" >
         </activity>
         <activity android:name="InfoActivity"></activity>
+        <activity android:name="StepActivity"></activity>
     </application>
 
 </manifest>

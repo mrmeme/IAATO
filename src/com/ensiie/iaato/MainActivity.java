@@ -76,13 +76,14 @@ public class MainActivity extends Activity {
 						//Log.e("DI", xml);
 						if(xml.length()>66){
 							Log.e("DI", "split");
-							String[] token = xml.split("</error>|</ships>|</sites>|</user>");
+							String[] token = xml.split("</error>|</ships>|</sites>|</user>|</steps>");
 							SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);
 							SharedPreferences.Editor editor = preferences.edit();
 						  
 							editor.putString("IAATO_ships",token[1].concat("</ships>"));
 							editor.putString("IAATO_sites",token[2].concat("</sites>"));
 							editor.putString("IAATO_infos",token[3].concat("</user>"));
+							editor.putString("IAATO_steps",token[4].concat("</steps>"));
 							editor.commit();						
 							
 						}

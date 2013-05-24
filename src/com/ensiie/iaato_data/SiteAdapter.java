@@ -6,6 +6,7 @@ import com.ensiie.iaato.R;
 import com.ensiie.iaato_data.Site;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

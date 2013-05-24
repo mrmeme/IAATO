@@ -69,6 +69,12 @@ public class ActiviteTab extends Activity {
 			  Intent intent = new Intent(ActiviteTab.this, InfoActivity.class);
 				startActivity(intent);
 		   }
+		  else if(v.getId()==R.id.btn_trajet)
+		   {
+			
+			  Intent intent = new Intent(ActiviteTab.this, StepActivity.class);
+				startActivity(intent);
+		   }
 		else  if(v.getId()==R.id.btn_annuaire)
 		   {
 			  Intent intent = new Intent(ActiviteTab.this, ShipActivity.class);
