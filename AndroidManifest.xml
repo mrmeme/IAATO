@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.ensiie.iaato"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ensiie.iaato"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-<uses-permission android:name="android.permission.INTERNET" />
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
@@ -29,14 +32,18 @@
         </activity>
         <activity android:name="com.ensiie.iaato.SwipeActivity" >
         </activity>
-        <activity
-            android:name="com.ensiie.iaato.SiteActivity">
+        <activity android:name="com.ensiie.iaato.SiteActivity" >
+        </activity>
+        <activity android:name="com.ensiie.iaato.ShipActivity" >
+        </activity>
+        <activity android:name="com.ensiie.iaato.InfoActivity" >
+        </activity>
+        <activity android:name="com.ensiie.iaato.StepActivity" >
         </activity>
         <activity
-            android:name="com.ensiie.iaato.ShipActivity" >
+            android:name="com.ensiie.iaato.ModifActivity"
+            android:label="@string/title_activity_modif" >
         </activity>
-        <activity android:name="InfoActivity"></activity>
-        <activity android:name="StepActivity"></activity>
     </application>
 
 </manifest>

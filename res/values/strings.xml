@@ -9,5 +9,16 @@
     <string name="histoire">&amp;lt;b&gt;caca&amp;lt;/b&gt;</string>
     <string name="title_activity_info">InfoActivity</string>
     <string name="lbl_sync">Synchronise</string>
+    <string name="title_activity_modif">ModifActivity</string>
+    <string-array name="array_timeslot">
+        <item >early morning</item>
+        <item >morning</item>
+        <item >afternoon</item>
+        <item >evening</item>
+        <item >overnight</item>
+    </string-array>
+    <string name="timeslot_default">Pick a timeslot</string>
+    <string name="lbl_datepicker">Pick a date</string>
+    <string name="site_default">Pick a site</string>
 
 </resources>
