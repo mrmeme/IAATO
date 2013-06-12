@@ -17,7 +17,7 @@
             android:background="#3498DB"
             android:gravity="center|left"
             android:paddingLeft="10dp"
-            android:text="TRAJET"
+            android:text="JOURNEY"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white" />
 

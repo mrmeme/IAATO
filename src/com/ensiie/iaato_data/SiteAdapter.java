@@ -39,7 +39,7 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		
 		TextView desc2 = (TextView) result.findViewById(R.id.tv_line_desc1);
 		desc2.setText("Longitude: "+site.getLongitude());
-		
+		 
 		TextView desc3 = (TextView) result.findViewById(R.id.tv_line_desc3);
 		desc3.setText("Zone: "+site.getZone());
 		
@@ -47,10 +47,11 @@ public class SiteAdapter extends ArrayAdapter<Site>{
 		desc4.setText("Subzone: "+site.getSubzone());
 		
 		TextView desc5 = (TextView) result.findViewById(R.id.tv_line_desc5);
-		if(site.getIaato().equals("1"))
-			desc5.setText("Iaato: Yes");
-		else
+		Log.e("DI", ""+site.getIaato());
+		if(site.getIaato()==null)
 			desc5.setText("Iaato: No");
+		else
+			desc5.setText("Iaato: Yes");
 		
 		TextView desc6 = (TextView) result.findViewById(R.id.tv_line_desc6);
 		if(!site.getActivity().isEmpty())

@@ -23,24 +23,62 @@
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Large Text"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Nom"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:id="@+id/TextView01"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center|left"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="Today's journey"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
-        <ListView
+        <LinearLayout
+        android:id="@+id/ll_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+   <ListView
             android:id="@+id/ListProd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="328dp" >
         </ListView>
+         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_og"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#000000"
+                android:gravity="center|"
+                android:paddingLeft="10dp"
+                android:text="LOGOUT"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
     </LinearLayout>
+    
 
 </ScrollView>

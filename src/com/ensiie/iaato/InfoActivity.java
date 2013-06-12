@@ -10,14 +10,23 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.ensiie.iaato_data.Site;
 import com.ensiie.iaato_data.SiteAdapter;
+import com.ensiie.iaato_data.Step;
+import com.ensiie.iaato_data.StepAdapter;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class InfoActivity extends Activity {
 
@@ -25,68 +34,70 @@ public class InfoActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info);
+
+		String format = "yyyy-MM-dd";
 		
-		SiteAdapter sa = new SiteAdapter(this, R.layout.line);
-		ListView lv = (ListView) findViewById(R.id.ListProd) ;
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat(format);
+		
+		java.util.Date date = new java.util.Date();
+		
+		StepAdapter sa = new StepAdapter(this, R.layout.line_step);
+		ListView lv = (ListView) findViewById(R.id.ListProd);
+		
+		SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);
+		TextView tv_name = (TextView) this.findViewById(R.id.tv_name);
+		tv_name.setText(preferences.getString("IAATO_user", ""));
+	    
+	    
+		
 		try{	 
 		 	XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 		 	XmlPullParser parser = factory.newPullParser();
 		 	
-		 	SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);	
-		 	String xml=preferences.getString("IAATO_infos", "<user><ship><name>Alexander von Humboldt</name><code>C6WC2</code><nbpassenger>200</nbpassenger><society>Club Cruise Fleet & Technical Department</society><type>Cat. 2</type></ship><steps></steps></user>");
+		 	preferences = getSharedPreferences("IAATO", MODE_PRIVATE);	
+		 	String xml=preferences.getString("IAATO_steps", "");//<step><site>Arago Glacier</site><timeslot> 2013-05-31  : morning</timeslot></step>
 		 	
 		 	Log.e("DI", "info");
 		 	parser.setInput(new StringReader(xml.replaceAll("&", "&amp;")));
 		 	Log.e("DI", xml);//Toast.makeText(getApplicationContext(), "Reussite XML", Toast.LENGTH_LONG).show();
-		 	boolean errorTag = false;
-		 	Site s =new Site();
-		 	while(parser.getEventType() != XmlPullParser.END_DOCUMENT && !errorTag){
-		 		if(parser.getEventType() == XmlPullParser.START_TAG){
+		 	String site="";
+ 			String time="";
+ 			boolean nouveau = true;
+		
+		 	Step s=new Step();
+		
+		 	
+		 	while(parser.getEventType() != XmlPullParser.END_DOCUMENT)
+		 	{
+		 		if(parser.getEventType() == XmlPullParser.START_TAG)
+		 		{
 		 			Log.e("DI","start_tag"+parser.getName());
-		 			if(parser.getName().equals("site"))
-		 				s=new Site();
-		 			else if(parser.getName().equals("name")){
+		 			
+		 			if(parser.getName().equals("site")){
 		 				parser.next();
-		 				s.setName(parser.getText());
+		 				Log.e("DI","site_value"+parser.getText());
+		 				site = parser.getText();
 		 			}
-		 			else if(parser.getName().equals("latitide")){
+		 			else if(parser.getName().equals("timeslot"))
+		 			{
 		 				parser.next();
-		 				s.setLatitude(parser.getText());
+		 				time = parser.getText();
+
+		 				if(time.substring(1,11).equals(formater.format(date)))
+		 				{
+		 					sa.add(s);
+		 					s.setSite(site);
+			 				s.setTimeslot(parser.getText());
+			 				
+		 				}
 		 			}
-		 			else if(parser.getName().equals("longitude")){
-		 				parser.next();
-		 				s.setLongitude(parser.getText());
-		 			}
-		 			else if(parser.getName().equals("iaato")){
-		 				parser.next();
-		 				s.setIaato(parser.getText());
-		 			}
-		 			else if(parser.getName().equals("activities")){
-		 				parser.next();
-		 				ArrayList<String> activities = new ArrayList<String>();
-		 				//s.setZone(parser.getText());
-		 				//parser.next();
-		 				while(parser.getEventType() == XmlPullParser.END_TAG && parser.getName().equals("activity")){
-			 				parser.next();
-			 				Log.e("DI", "activity = "+parser.getText());
-			 				activities.add(parser.getText());
-			 			}
-		 				s.setActivity(activities);
-		 			}
-		 			else if(parser.getName().equals("zone")){
-		 				parser.next();
-		 				s.setZone(parser.getText());
-		 				parser.next();
-		 				if(parser.getName().equals("subzone")){		 				
-			 				//parser.next();
-			 				s.setSubzone(parser.getText());
-			 			}
-		 			}
+		 			else{}
 		 		}
+		 		
 		 		if(parser.getEventType() == XmlPullParser.END_TAG){
 		 			Log.e("DI","end_tag"+parser.getName());
-		 			if(parser.getName().equals("site"))
-		 				sa.add(s);
+		 		
+			 						 			
 		 		}
 		 		parser.next();
 		 	}		
@@ -95,11 +106,32 @@ public class InfoActivity extends Activity {
 			Log.e("DI", "erreur = "+e.getMessage());
 			e.printStackTrace();
 		}
-		Site s = new Site();
-		s.setName("coucou");
-		sa.add(s);
+		
 		lv.setAdapter(sa);
+		Log.e("DI", "endStepAct" ); 
+		
+		Button btn_logout = (Button) findViewById(R.id.btn_logout);
+		Log.e("DI", "endStepAct" ); 
+		btn_logout.setOnClickListener(logoutListener);
 	}
+
+	private OnClickListener logoutListener = new OnClickListener()
+	  {
+		   
+		   @Override
+		   public void onClick(View v) 
+		   {
+				   SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);
+					SharedPreferences.Editor editor = preferences.edit();
+				  
+					editor.putString("IAATO_user","");
+					editor.putString("IAATO_pass","");
+					editor.putInt("IAATO_login",0);
+					editor.commit();
+					Intent intent = new Intent(InfoActivity.this, MainActivity.class);
+					startActivity(intent);
+		   }
+	  };
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

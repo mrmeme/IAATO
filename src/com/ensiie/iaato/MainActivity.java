@@ -11,14 +11,18 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.ensiie.iaato.R;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
  
 public class MainActivity extends Activity {
   // La chaine de caracteres par defaut
@@ -26,6 +30,22 @@ public class MainActivity extends Activity {
 	Button btn_connect;	
 	EditText tv_user;
 	EditText tv_passwd;
+	Boolean res;
+	protected ProgressDialog progress;
+    final Handler progressHandler = new Handler(){
+		
+		public void handleMessage(Message msg){
+			progress.dismiss();
+			if(res){
+				Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
+				startActivity(intent);
+    			Toast.makeText(getApplicationContext(), "Authentication succeeded", Toast.LENGTH_LONG).show();
+    		}
+    		else{    			
+    			Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_LONG).show();
+    		}
+		}
+	};
 	
   @Override
   public void onCreate(Bundle savedInstanceState) 
@@ -35,6 +55,11 @@ public class MainActivity extends Activity {
    
 	SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);
     
+	if(preferences.getInt("IAATO_login", 0)==1){
+	Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
+	startActivity(intent);
+	}
+	
      tv_user = (EditText) this.findViewById(R.id.tv_user);
      if(!preferences.getString("IAATO_user", "").equals(""))
     	 tv_user.setText(preferences.getString("IAATO_user", ""));
@@ -67,6 +92,7 @@ public class MainActivity extends Activity {
 				editor.putString("IAATO_user",user);
 				editor.putString("IAATO_pass",passwd);
 				editor.commit();
+				progress = ProgressDialog.show(MainActivity.this, null, "Authentication in progress...", true);
 				new Thread( new Runnable(){
 
 					@Override
@@ -75,6 +101,7 @@ public class MainActivity extends Activity {
 						Log.e("DI", ""+xml.length());
 						//Log.e("DI", xml);
 						if(xml.length()>66){
+							
 							Log.e("DI", "split");
 							String[] token = xml.split("</error>|</ships>|</sites>|</user>|</steps>");
 							SharedPreferences preferences = getSharedPreferences("IAATO", MODE_PRIVATE);
@@ -84,76 +111,31 @@ public class MainActivity extends Activity {
 							editor.putString("IAATO_sites",token[2].concat("</sites>"));
 							editor.putString("IAATO_infos",token[3].concat("</user>"));
 							editor.putString("IAATO_steps",token[4].concat("</steps>"));
-							editor.commit();						
+							editor.putInt("IAATO_login", 1);
+							editor.commit();	
+							res=true;
 							
 						}
 						else{
-							//handler error toast MainActivity
+							res = false;
 						}
-							
-						/*String errorValue="";
-						try{	 
-						 	XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-						 	XmlPullParser parser = factory.newPullParser();
-						 	parser.setInput(new StringReader(xml));
-						 	Log.e("DI", "xml ressu");//Toast.makeText(getApplicationContext(), "Reussite XML", Toast.LENGTH_LONG).show();
-						 	boolean errorTag = false;
-						 	
-						 	while(parser.getEventType() != XmlPullParser.END_DOCUMENT && !errorTag){
-						 		if(parser.getEventType() == XmlPullParser.START_TAG){
-						 			if(parser.getName().equals("error")){
-						 				Log.e("DI","enter entete");
-						 				parser.next();
-						 				Log.e("DI",""+parser.getText());
-						 				if((parser.getText())==null)
-						 					errorTag=true;
-						 				else 
-						 					errorValue=parser.getText();
-						 				//Log.e("DI",parser.getText());
-						 				//Toast.makeText(getApplicationContext(), parser.getText(), Toast.LENGTH_LONG).show();			 					
-						 			}
-						 			parser.next();
-						 		}
-						 		if(parser.getEventType() == XmlPullParser.END_TAG){
-						 			Log.e("DI","end_tag"+parser.getName());
-						 			if(parser.getName().equals("error")){	
-						 				parser.next();
-						 			}
-						 			parser.next();
-						 		}
-						 		//parser.next();
-						 		parser.next();
-						 		//Log.e("DI", parser.getText());
-						 	}						 	
-						 	//Log.e("DI", "error "+parser.getText());
-						 	//parser.next();
-						}
-						catch(Exception e){
-							Log.e("DI", "erreur = "+e.getMessage());
-							Log.e("DI", "erreur = "+e.getMessage());
-							e.printStackTrace();
-							//Toast.makeText(getApplicationContext(), "Erreur XML", Toast.LENGTH_LONG).show();
-						}
+						progressHandler.sendMessage(progressHandler.obtainMessage());	
 						
-						if(errorValue.isEmpty()){
-						Log.e("DI", "before intent");
-						Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
-						startActivity(intent);
-						Log.e("DI", "after intent");
-						}*/
 						
 						
 					}
 				}).start();
 				
-				Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
+				/*Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
 				//Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
-				startActivity(intent);
+				startActivity(intent);*/
 		   }
-		   else{
-			   Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
+		   /*else{
+			   res = false;
+			   /*Intent intent = new Intent(MainActivity.this, ActiviteTab.class);
 			   startActivity(intent);
-		   }
+		   }*/
+		   
 			   //Toast.makeText(getApplicationContext(), "Please enter your username and password", Toast.LENGTH_LONG).show();
 			
 	   }
@@ -167,7 +149,7 @@ public class MainActivity extends Activity {
   			//StrictMode.setThreadPolicy(policy); 
   			
 			HttpClient httpclient = new DefaultHttpClient();
-			HttpResponse response = httpclient.execute(new HttpGet("http://10.0.2.2/Iaato/web/app_dev.php/rest/capitaine/pass"));
+			HttpResponse response = httpclient.execute(new HttpGet("http://10.0.2.2/Iaato/web/app_dev.php/rest/"+tv_user.getText().toString()+"/"+tv_passwd.getText().toString()));
 			StatusLine statusLine = response.getStatusLine();
 		    if(statusLine.getStatusCode() == HttpStatus.SC_OK){
 		        ByteArrayOutputStream out = new ByteArrayOutputStream();

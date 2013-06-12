@@ -35,7 +35,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#2980B9"
-            android:text="Info"
+            android:text="Informations"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
@@ -65,7 +65,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#3498DB"
-            android:text="Mon Trajet"
+            android:text="My Journey"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
@@ -76,7 +76,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#3498DB"
-            android:text="Modification"
+            android:text="Modifications"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
@@ -95,7 +95,7 @@
              android:layout_margin="5dp"
              android:layout_weight="1"
              android:background="@android:color/darker_gray"
-             android:text="Annuaire \n bateau"
+             android:text="Ship List"
              android:textColor="@android:color/white"
              android:textSize="25sp" />
 
@@ -107,7 +107,7 @@
             android:layout_weight="1"
             android:background="@android:color/darker_gray"
             android:gravity="center"
-            android:text="Liste des \n sites"
+            android:text="Site List"
             android:textColor="@android:color/white"
             android:textSize="25sp" />
 
